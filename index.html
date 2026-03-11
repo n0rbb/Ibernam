@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IberNam - Red de Científicos de Estado Sólido</title>
+<style>
+    /* Reset y tipografía */
+    body, html {
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #f4f4f4;
+        color: #333;
+    }
+    header {
+        background: #1e3a8a;
+        color: #fff;
+        text-align: center;
+        padding: 80px 20px;
+        position: relative;
+        overflow: hidden;
+    }
+    header h1 {
+        font-size: 3.5em;
+        margin: 0;
+        animation: slideIn 1s ease-out;
+    }
+    header p {
+        font-size: 1.3em;
+        margin-top: 10px;
+        animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes slideIn {
+        from {transform: translateY(-50px); opacity: 0;}
+        to {transform: translateY(0); opacity: 1;}
+    }
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(30,58,138,0.9);
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        padding: 15px 0;
+        z-index: 1000;
+    }
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+    nav a:hover { color: #ffd700; }
+
+    section {
+        padding: 80px 20px;
+        max-width: 1000px;
+        margin: auto;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 1s ease-out;
+    }
+    section.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    h2 {
+        text-align: center;
+        color: #1e3a8a;
+        margin-bottom: 40px;
+    }
+
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .card {
+        background: #fff;
+        padding: 25px;
+        flex: 1 1 280px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    }
+
+    .btn {
+        display: inline-block;
+        background: #1e3a8a;
+        color: #fff;
+        padding: 12px 25px;
+        border-radius: 8px;
+        text-decoration: none;
+        margin-top: 15px;
+        transition: background 0.3s;
+    }
+    .btn:hover { background: #16316a; }
+
+    footer {
+        background: #111827;
+        color: #fff;
+        text-align: center;
+        padding: 25px;
+    }
+</style>
+</head>
+<body>
+
+<nav>
+    <a href="#about">Sobre Nosotros</a>
+    <a href="#research">Investigación</a>
+    <a href="#events">Eventos</a>
+    <a href="#join">Únete</a>
+</nav>
+
+<header>
+    <h1>IberNam</h1>
+    <p>Conectando Científicos de Estado Sólido en la Península Ibérica</p>
+</header>
+
+<section id="about">
+    <h2>Sobre Nosotros</h2>
+    <p>IberNam es una red para investigadores y profesionales en física del estado sólido, fomentando la colaboración, el intercambio de conocimientos y la innovación en ciencia de materiales.</p>
+</section>
+
+<section id="research">
+    <h2>Áreas de Investigación</h2>
+    <div class="cards">
+        <div class="card"><h3>Semiconductores</h3><p>Explorando las propiedades electrónicas de los materiales para dispositivos.</p></div>
+        <div class="card"><h3>Magnetismo</h3><p>Estudiando fenómenos magnéticos en sólidos a escala nanométrica.</p></div>
+        <div class="card"><h3>Materiales Cuánticos</h3><p>Investigando superconductores, aislantes topológicos y más.</p></div>
+    </div>
+</section>
+
+<section id="events">
+    <h2>Eventos y Talleres</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Conferencia Anual IberNam</h3>
+            <p>Únete a expertos para discutir los avances recientes en física del estado sólido.</p>
+            <p><strong>Fecha:</strong> 15-17 Septiembre 2026</p>
+        </div>
+        <div class="card">
+            <h3>Serie de Webinars</h3>
+            <p>Charlas mensuales de científicos líderes en el campo.</p>
+            <p><strong>Próximo:</strong> 10 Abril 2026</p>
+        </div>
+    </div>
+</section>
+
+<section id="join">
+    <h2>Únete a IberNam</h2>
+    <p>Hazte miembro para acceder a nuestra red, participar en eventos y colaborar con colegas.</p>
+    <a class="btn" href="mailto:contacto@ibernam.org">Envíanos un correo para unirte →</a>
+</section>
+
+<footer>
+    <p>&copy; 2026 IberNam | <a href="#" style="color:#ffd700">LinkedIn</a> | <a href="#" style="color:#ffd700">Twitter</a></p>
+</footer>
+
+<script>
+    // Animación de secciones al hacer scroll
+    const sections = document.querySelectorAll('section');
+    window.addEventListener('scroll', () => {
+        sections.forEach(sec => {
+            const top = sec.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            if(top < windowHeight - 100) sec.classList.add('show');
+        });
+    });
+</script>
+
+</body>
+</html>
